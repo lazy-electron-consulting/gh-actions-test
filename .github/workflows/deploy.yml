@@ -17,25 +17,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_CONTEXT: ${{ toJson(github) }}
     steps:
       - run: env
-      - run: echo ${{ github.event.base_ref }}
-      - run: echo ${{ github.event.ref }}
-      - run: echo ${{ github.event }}
+      - run: echo "$GITHUB_CONTEXT"
 
   staging:
-    runs-on: ubuntu-latest
     if: |
       github.event_name == 'push' || (
         github.event_name == 'workflow_dispatch' && 
         github.event.inputs.environment == 'staging'
       )
+    runs-on: ubuntu-latest
     environment: staging
     needs: build
     steps:
       - run: echo "TODO deploy staging iff we're a push or a manual trigger on ${{ github.event.repository.default_branch }}"
 
   production:
+    if: |
+      github.event_name == 'push' || (
+        github.event_name == 'workflow_dispatch' && 
+        github.event.inputs.environment == 'production'
+      )    
     runs-on: ubuntu-latest
     environment: production
     needs: build
