@@ -1,0 +1,35 @@
+name: Deploy
+concurrency: deploy
+
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        type: environment
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
+
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: build
+    steps:
+      - run: echo TODO deploy staging iff we're a push or a manual trigger on main
+
+  production:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: build
+    steps:
+      - run: echo TODO deploy production iff we're a release or a manual trigger on a tag
