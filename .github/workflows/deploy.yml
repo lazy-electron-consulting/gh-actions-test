@@ -13,7 +13,7 @@ on:
         description: |
           Environment to deploy. 
           
-          Must select the _default branch_ for staging, and a release tag for production.
+          Must select the default branch for staging, and a release tag for production.
         type: environment
         required: true
 
