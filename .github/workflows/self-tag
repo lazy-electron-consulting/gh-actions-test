@@ -1,0 +1,14 @@
+name: Self-tag
+concurrency: self-tag
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          VERSION=$(date +%s)
+          git tag -a "$VERSION" -m "Release $VERSION"
+          git push origin "$VERSION"
