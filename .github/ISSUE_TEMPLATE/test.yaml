@@ -1,0 +1,29 @@
+name: "Test Issue Template"
+title: "Test Issue Template Title"
+description: |
+  Sample description that uses _markdown_.
+labels: ["what"]  
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Sample Markdown Section
+        This is a sample section that uses **bold** and _italic_ text.
+
+  - type: input
+    id: sample_input
+    attributes:
+      label: "Sample Input"
+      description: "This is a sample input field."
+      placeholder: "Enter something here..."
+
+
+  - type: checkboxes
+    attributes:
+      label: "Steps to do a thing"
+      description: |
+        This is a sample checkboxes section that uses _markdown_.
+      options:
+        - label: step 1
+        - label: |
+            step 2 uses _markdown_.
