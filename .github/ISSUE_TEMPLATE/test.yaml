@@ -10,7 +10,7 @@ body:
         ## Sample Markdown Section
         This is a sample section that uses **bold** and _italic_ text.
 
-        Diagrams don't work?
+        Diagrams don't work :(
 
         ```mermaid
         flowchart
