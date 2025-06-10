@@ -10,15 +10,13 @@ body:
         ## Sample Markdown Section
         This is a sample section that uses **bold** and _italic_ text.
 
-        can it have a diagram?
+        Diagrams don't work?
 
         ```mermaid
-        graph TD;
-          A[Start] --> B{Decision};
-          B -->|Yes| C[Option 1];
-          B -->|No| D[Option 2];
-          C --> E[End];
-          D --> E;
+        flowchart
+          A --> B
+          B --> C
+          C --> A
         ```
 
   - type: input
