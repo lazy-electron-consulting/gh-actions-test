@@ -1,7 +1,7 @@
 name: "Test Issue Template"
 title: "Test Issue Template Title"
 description: |
-  Sample description that uses _markdown_.
+  Sample description does _not_ render markdown in the "new issue dialog".
 labels: ["what"]  
 body:
   - type: markdown
@@ -10,8 +10,19 @@ body:
         ## Sample Markdown Section
         This is a sample section that uses **bold** and _italic_ text.
 
+        can it have a diagram?
+
+        ```mermaid
+        graph TD;
+          A[Start] --> B{Decision};
+          B -->|Yes| C[Option 1];
+          B -->|No| D[Option 2];
+          C --> E[End];
+          D --> E;
+        ```
+
   - type: input
-    id: sample_input
+    id: sample_input # can be passed on the query string
     attributes:
       label: "Sample Input"
       description: "This is a sample input field."
@@ -22,8 +33,8 @@ body:
     attributes:
       label: "Steps to do a thing"
       description: |
-        This is a sample checkboxes section that uses _markdown_.
+        This is a sample checkboxes section that uses _markdown_ just fine.
       options:
         - label: step 1
         - label: |
-            step 2 uses _markdown_.
+            step 2 uses _markdown_ just fine.
